@@ -10,6 +10,14 @@ class Api {
     .send({ email, password })
   )
 
+  requestSignup = (email, password) => {
+    return superagent
+    .post(`${API_HOST}/auth/users`)
+    // .send({ email, password })
+      .send({ email, password })
+      .set('Accept', 'application/json')
+  }
+
   requestLogout = (token) => (
     superagent
     .delete(`${API_HOST2}/auth/sessions`)
