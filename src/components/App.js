@@ -8,9 +8,9 @@ class App extends Component {
     super(props)
     this.state = { isMenuOpen: false }
   }
-  
+
   closeMenu = () => this.setState({ isMenuOpen: false })
-  
+
   render() {
     let {isMenuOpen} = this.state
     return (

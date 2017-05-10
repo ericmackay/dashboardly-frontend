@@ -1,14 +1,14 @@
 import superagent from 'superagent'
 import { API_HOST } from './config'
-import { APT_HOST2} from './config'
 
 class Api {
 
-  requestLogin = (email, password) => (
-    superagent
-    .post(`${API_HOST2}/auth/sessions`)
+  requestLogin = (email, password) => {
+    return superagent
+    .post(`${API_HOST}/auth/sessions`)
     .send({ email, password })
-  )
+    .set('Accept', 'application/json')
+  }
 
   requestSignup = (email, password) => {
     return superagent
@@ -18,26 +18,26 @@ class Api {
       .set('Accept', 'application/json')
   }
 
-  requestLogout = (token) => (
-    superagent
-    .delete(`${API_HOST2}/auth/sessions`)
+  requestLogout = (token) => {
+    return superagent
+    .delete(`${API_HOST}/auth/sessions`)
     .set('Authorization', `token ${token}`)
-  )
+  }
 
-  getBoardsList = (page, count) => (
+  getBoardsList = (page, count) => {
     superagent
-    .get(`${API_HOST2}/boards`)
-  )
+    .get(`${API_HOST}/boards`)
+  }
 
-  getBoard = (id) => (
+  getBoard = (id) => {
     superagent
-    .get(`${API_HOST2}/boards/${id}`)
-  )
+    .get(`${API_HOST}/boards/${id}`)
+  }
 
-  getBookmarks = (boardId) => (
+  getBookmarks = (boardId) => {
     superagent
-    .get(`${API_HOST2}/boards/${boardId}/bookmarks`)
-  )
+    .get(`${API_HOST}/boards/${boardId}/bookmarks`)
+  }
 
 }
 
