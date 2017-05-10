@@ -25,19 +25,23 @@ class Api {
   }
 
   getBoardsList = (page, count) => {
-    superagent
+    return superagent
     .get(`${API_HOST}/boards`)
   }
 
   getBoard = (id) => {
     superagent
     .get(`${API_HOST}/boards/${id}`)
+
   }
+
 
   getBookmarks = (boardId) => {
     superagent
     .get(`${API_HOST}/boards/${boardId}/bookmarks`)
+
   }
+
 
 }
 
