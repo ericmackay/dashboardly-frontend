@@ -18,10 +18,12 @@ class Menu extends Component {
   render() {
     let { closeMenu, show } = this.props
     const isLoggedIn = auth.isLoggedIn()
-
+    let profile = {}
     if(isLoggedIn){
       api.getMe(localStorage.token)
-      .then((res) => {const profile = res;console.log(profile);})
+      .then((res) => {profile = res;console.log(profile);})
+
+    // console.log("hello", profile);
 
 
     }
@@ -30,7 +32,7 @@ class Menu extends Component {
       <div className={`menu ${show?"show":""}`}>
 
         <div className="menu__header">
-          <img src="" alt="profile-pic" className="menu__avatar"/>
+          <img src={profile.avatarUrl} alt="profile-pic" className="menu__avatar"/>
         </div>
 
         <div className="menu__list">
