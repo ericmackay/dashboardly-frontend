@@ -4,13 +4,15 @@ import onClickOutside from 'react-onclickoutside';
 import auth from '../../auth';
 import './Menu.css';
 
-
 class Menu extends Component {
-  
+
   handleClickOutside = () => {
     this.props.closeMenu();
   }
-
+  _handleLogout = () => {
+    console.log(localStorage.token, '!!!!!!!!!!!!!!!!!!!!!@@@@@');
+    auth.logout();
+  }
   render() {
     let { closeMenu, show } = this.props
     const isLoggedIn = auth.isLoggedIn()
@@ -40,9 +42,9 @@ class Menu extends Component {
           : null}
 
           {isLoggedIn ?
-            <Link to="/logout" className="menu__item" onClick={closeMenu}>
+            <button className="menu__item" onClick={this._handleLogout}>
               Logout
-            </Link>
+            </button>
           : null}
         </div>
 
