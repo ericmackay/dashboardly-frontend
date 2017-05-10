@@ -27,8 +27,10 @@ module.exports = {
 
   logout() {
     return api.requestLogout(localStorage.token)
-    .then(res => delete localStorage.token)
-    .then(res => this.props.router.push('/'))
+    .then(res => {
+      console.log('Boo!!!!!');
+      delete localStorage.token
+    })
     .catch(console.error);
   },
 

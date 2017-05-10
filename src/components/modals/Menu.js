@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import onClickOutside from 'react-onclickoutside';
 import auth from '../../auth';
+import api from '../../api';
 import './Menu.css';
 
 class Menu extends Component {
@@ -11,11 +12,20 @@ class Menu extends Component {
   }
   _handleLogout = () => {
     console.log(localStorage.token, '!!!!!!!!!!!!!!!!!!!!!@@@@@');
-    auth.logout();
+    auth.logout()
+    // .then(res => this.props..push('/'));
   }
   render() {
     let { closeMenu, show } = this.props
     const isLoggedIn = auth.isLoggedIn()
+
+    if(isLoggedIn){
+      api.getMe(localStorage.token)
+      .then((res) => {const profile = res;console.log(profile);})
+
+
+    }
+
     return (
       <div className={`menu ${show?"show":""}`}>
 

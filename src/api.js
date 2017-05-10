@@ -19,15 +19,11 @@ class Api {
   }
 
   requestLogout = (token) => {
-    console.log(token, "111111");
     return superagent
-    .del(`${API_HOST}/auth/sessions`)
+    .delete(`${API_HOST}/auth/sessions`)
     .send({token})
     .set('Authorization', `token ${token}`)
     .set('Accept', 'application/json')
-    .end(function (err, res) {
-      console.log('err', err)
-    })
   }
 
   getBoardsList = (page, count) => {
@@ -46,6 +42,14 @@ class Api {
     superagent
     .get(`${API_HOST}/boards/${boardId}/bookmarks`)
 
+  }
+
+  getMe = (token) => {
+    return superagent
+    .get(`${API_HOST}/auth/me`)
+    .send({token})
+    .set('Authorization', `token ${token}`)
+    .set('Accept', 'application/json')
   }
 
 
