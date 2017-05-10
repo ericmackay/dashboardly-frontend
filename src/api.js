@@ -1,12 +1,11 @@
 import superagent from 'superagent'
 import { API_HOST } from './config'
-import { APT_HOST2} from './config'
 
 class Api {
 
   requestLogin = (email, password) => (
     superagent
-    .post(`${API_HOST2}/auth/sessions`)
+    .post(`${API_HOST}/auth/sessions`)
     .send({ email, password })
   )
 
@@ -20,23 +19,23 @@ class Api {
 
   requestLogout = (token) => (
     superagent
-    .delete(`${API_HOST2}/auth/sessions`)
+    .delete(`${API_HOST}/auth/sessions`)
     .set('Authorization', `token ${token}`)
   )
 
-  getBoardsList = (page, count) => (
-    superagent
-    .get(`${API_HOST2}/boards`)
-  )
+  getBoardsList = (page, count) => {
+    return superagent
+    .get(`${API_HOST}/boards`)
+  }
 
   getBoard = (id) => (
     superagent
-    .get(`${API_HOST2}/boards/${id}`)
+    .get(`${API_HOST}/boards/${id}`)
   )
 
   getBookmarks = (boardId) => (
     superagent
-    .get(`${API_HOST2}/boards/${boardId}/bookmarks`)
+    .get(`${API_HOST}/boards/${boardId}/bookmarks`)
   )
 
 }
