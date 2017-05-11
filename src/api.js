@@ -49,6 +49,26 @@ class Api {
     .send({token})
     .set('Authorization', `token ${token}`)
     .set('Accept', 'application/json')
+    .then(profile => {
+      return JSON.parse(profile.text);
+    })
+  }
+
+  postBoard = (board) => {
+    return this.getMe(localStorage.token)
+    .then((profile) => {
+      console.log('ehehheheheh', profile)
+      return superagent
+      .post(`${API_HOST}/boards`)
+      .send({
+        title: board.title,
+        description: board.description,
+        ownerId: profile.userId
+      })
+      .set('Authorization', `token ${localStorage.token}`)
+      .set('Accept', 'application/json')
+    })
+
   }
 
 
