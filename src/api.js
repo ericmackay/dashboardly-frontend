@@ -32,13 +32,13 @@ class Api {
   }
 
   getBoard = (id) => {
-    superagent
+    return superagent
     .get(`${API_HOST}/boards/${id}`)
 
   }
 
   getBookmarks = (boardId) => {
-    superagent
+    return superagent
     .get(`${API_HOST}/boards/${boardId}/bookmarks`)
 
   }
@@ -67,6 +67,15 @@ class Api {
       .set('Authorization', `token ${localStorage.token}`)
       .set('Accept', 'application/json')
     })
+
+  }
+
+  // getBookmarksList = (page, count) => {
+  //   return superagent
+  //   .get(`${API_HOST}/boards/${this.boardId}/bookmarks`)
+  // }
+
+  postBookmark = (bookmark) => {
 
   }
 
