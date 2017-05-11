@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+}
+
+.home {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.home .home__boards {
+  flex: 1;
+
+}
+.home__boards {
+  display: flex;
+  justify-content: space-between;
+  flex-basis: 32%;
+}

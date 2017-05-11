@@ -5,7 +5,6 @@ import AddButton from '../elements/AddButton';
 import auth from '../../auth';
 import './Home.css';
 import CreateBoard from '../modals/CreateBoard';
-// import { Link } from 'react-router';
 
 
 export default class Home extends Component {
@@ -44,17 +43,21 @@ export default class Home extends Component {
     let { boards } = this.state
     return (
       <div className="home">
-        { boards.map(b =>
-          <BoardCard
-            key={b.id}
-            id={b.id}
-            title={b.title}
-            description={b.description}
-            updatedAt={b.updatedAt}
-          />
-        )}
-        {auth.isLoggedIn() ? <AddButton _handleButton={this._handleBoardCreate}/> : null}
-        {this.state.isCreateBoardClicked ? <CreateBoard _handleBoardCreate={this._handleBoardCreate} _fetchBoards={this._fetchBoards}/> : null }
+
+          { boards.map(b =>
+            <div className="home__boards-thirds">
+            <BoardCard
+              key={b.id}
+              id={b.id}
+              title={b.title}
+              description={b.description}
+              updatedAt={b.updatedAt}
+            />
+            </div>
+          )}
+          {auth.isLoggedIn() ? <AddButton _handleBoardCreate={this._handleBoardCreate}/> : null}
+          {this.state.isCreateBoardClicked ? <CreateBoard _handleBoardCreate={this._handleBoardCreate} _fetchBoards={this._fetchBoards}/> : null }
+
       </div>
     ); //For logged in users on the
     //home page, make the + button work. It should open a

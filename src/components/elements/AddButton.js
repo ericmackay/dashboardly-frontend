@@ -1,8 +1,9 @@
 import React from 'react';
-// import { Link } from 'react-router';
+import './AddButton.css';
 
 
 export default (props) => (
+
 
     <div className="add-button" onClick={props._handleButton}>
       <i className="fa fa-plus fa-2x"/>
@@ -11,4 +12,5 @@ export default (props) => (
   // <Link to="/boardcreate" className="menu__item">
   //   <i className="fa fa-plus fa-2x"/>
   // </Link>
+
 )
