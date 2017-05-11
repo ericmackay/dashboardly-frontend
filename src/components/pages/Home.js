@@ -43,6 +43,7 @@ export default class Home extends Component {
     let { boards } = this.state
     return (
       <div className="home">
+
           { boards.map(b =>
             <div className="home__boards-thirds">
             <BoardCard
