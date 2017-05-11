@@ -42,7 +42,7 @@ export default class CreateBoard extends Component {
           <input type="text" ref="title" onKeyUp={this._handleTyping}/><br/>
           <h5>Description</h5>
           <input type="text" ref="description" onKeyUp={this._handleTyping}/><br/>
-        <div className="sign__up-button">
+        <div className="create__board-button">
           <button onClick={this._submitBoard}>Create Board</button>
         </div>
         </div>

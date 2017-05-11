@@ -1,3 +1,8 @@
+@fontface {
+  font-family: 'Roboto', sans-serif;
+  src: url('https://fonts.googleapis.com/css?family=Roboto')
+}
+
 .add-button {
   background: green;
   color: white;
@@ -6,9 +11,20 @@
   border-radius: 50%;
   transition: 0.5s;
   box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.65);
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 60px;
 }
 
 .add-button:hover {
   cursor: pointer;
   box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+}
+
+.fa fa-plus fa-2x{
+  color: white;
+  position: absolute;
 }
