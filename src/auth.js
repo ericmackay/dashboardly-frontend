@@ -16,6 +16,7 @@ module.exports = {
       throw new Error('Please enter valid email or password')
     }
     else {
+      console.log(email, pass, 'test2!!!!!!!')
       return api.requestSignup(email, pass);
     }
   },
@@ -27,6 +28,7 @@ module.exports = {
   logout() {
     return api.requestLogout(localStorage.token)
     .then(res => {
+      console.log('Boo!!!!!');
       delete localStorage.token
     })
     .catch(console.error);
