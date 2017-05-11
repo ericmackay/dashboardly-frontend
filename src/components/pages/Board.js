@@ -14,11 +14,11 @@ export default class Board extends Component {
       updatedAt: ""
     };
   }
-  
+
   componentDidMount() {
     this.fetchBoardData()
   }
-  
+
   fetchBoardData = () => {
       Promise.all([
         api.getBoard(this.props.params.id),

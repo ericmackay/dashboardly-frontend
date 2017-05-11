@@ -30,15 +30,18 @@ export default class Login extends Component {
 
   render() {
     return (
-      <div className="login">
-        <input type="text" ref="email"
-          onKeyUp={this._handleTyping}
-        />
-        <input type="password" ref="password"
-          onKeyUp={this._handleTyping}
-        />
-        <button onClick={this._handleLogin}>login</button>
-      </div>
+        <div className="login">
+          <div className="login-content">
+            <h1>Login</h1>
+            <h5>Email</h5>
+            <input type="text" ref="email" onKeyUp={this._handleTyping}/>
+            <h5>Password</h5>
+            <input type="password" ref="password" onKeyUp={this._handleTyping}/>
+          <div className="login-button">
+            <button onClick={this._handleLogin}>Login</button>
+          </div>
+          </div>
+        </div>
     );
   }
 
