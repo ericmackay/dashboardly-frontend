@@ -6,6 +6,7 @@ import Home from './components/pages/Home';
 import Login from './components/pages/Login';
 import SignUp from './components/pages/SignUp';
 import Board from './components/pages/Board';
+// import CreateBoard from './components/modals/CreateBoard';
 
 import './index.css';
 
@@ -17,6 +18,7 @@ const routes = (
         <Route path="/boards/:id" component={Board}/>
         <Route path="/signup" component={SignUp}/>
         <Route path="/login" component={Login}/>
+        {/* <Route path="/createboard" component={CreateBoard}/> */}
       </Route>
     </Router>
 );

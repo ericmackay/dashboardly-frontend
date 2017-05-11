@@ -4,13 +4,16 @@ import BoardCard from '../elements/BoardCard';
 import AddButton from '../elements/AddButton';
 import auth from '../../auth';
 import './Home.css';
+import CreateBoard from '../modals/CreateBoard';
+// import { Link } from 'react-router';
 
 
 export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      boards: []
+      boards: [],
+      isCreateBoardClicked: false
     };
   }
 
@@ -24,6 +27,9 @@ export default class Home extends Component {
       this.setState({ boards: res.body })
     })
     .catch(console.error)
+  }
+  _handleBoardCreate = () => {
+      this.setState({ isCreateBoardClicked: !this.state.isCreateBoardClicked  })
   }
 
   render() {
@@ -39,9 +45,15 @@ export default class Home extends Component {
             updatedAt={b.updatedAt}
           />
         )}
-        {auth.isLoggedIn() ? <AddButton /> : null}
+        {auth.isLoggedIn() ? <AddButton _handleBoardCreate={this._handleBoardCreate}/> : null}
+        {this.state.isCreateBoardClicked ? <CreateBoard/> : null }
       </div>
-    );
+    ); //For logged in users on the
+    //home page, make the + button work. It should open a
+    //modal prompting the user to create a new board like
+    // in the mockups. On submit, make the appropriate API
+    //call. Once the board is created, redirect the user to
+    //that board's page with React Router's browserHistory.
   }
 
 }
