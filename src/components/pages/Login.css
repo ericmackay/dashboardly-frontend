@@ -1,0 +1,68 @@
+@fontface {
+  font-family: 'Roboto', sans-serif;
+  src: url('https://fonts.googleapis.com/css?family=Roboto')
+}
+h1, h2, h3, h4, h5, h5, h6{
+  text-decoration: none !important;
+  font-family: 'Roboto', sans-serif;
+}
+.login {
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.login-content {
+  background-color: #fefefe;
+  border-radius: 3px;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%; /* Could be more or less, depending on screen size */
+}
+
+.login-content input[type=text], input[type=password]{
+  background: transparent;
+  width: 100%;
+  color: #CCC;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #CCC;
+  padding: 0.2em;
+  margin-right: 1em;
+  font-size: 20px;
+
+}
+
+.login-content button {
+    font-family: 'Roboto', sans-serif;
+    background: transparent;
+    float: right;
+    border: 0;
+    outline: 0;
+    color: green;
+}
+
+.login-content h5{
+  color: #CCC;
+}
+
+.login-button {
+  padding: 1em;
+}
+
+.login-button button{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  float: right;
+  border: 0;
+  outline: 0;
+  color: green;
+}

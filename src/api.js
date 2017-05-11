@@ -37,7 +37,6 @@ class Api {
 
   }
 
-
   getBookmarks = (boardId) => {
     superagent
     .get(`${API_HOST}/boards/${boardId}/bookmarks`)

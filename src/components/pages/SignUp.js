@@ -31,11 +31,17 @@ export default class SignUp extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Sign Up</h1>
-        <input type="text" ref="email" onKeyUp={this._handleTyping}/><br/>
-        <input type="password" ref="password" onKeyUp={this._handleTyping}/><br/>
-        <button onClick={this._handleSignup}>Sign Up</button>
+      <div className="sign__up">
+        <div className="sign__up-content">
+          <h1>Sign Up</h1>
+          <h5>Email</h5>
+          <input type="text" ref="email" onKeyUp={this._handleTyping}/><br/>
+          <h5>Password</h5>
+          <input type="password" ref="password" onKeyUp={this._handleTyping}/><br/>
+        <div className="sign__up-button">
+          <button onClick={this._handleSignup}>Sign Up</button>
+        </div>
+        </div>
       </div>
     );
   }
