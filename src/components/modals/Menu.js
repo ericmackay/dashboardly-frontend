@@ -21,7 +21,7 @@ class Menu extends Component {
     let profile = {}
     if(isLoggedIn){
       api.getMe(localStorage.token)
-      .then((res) => {profile = res;console.log(profile);})
+      .then(res => profile = res);
 
     // console.log("hello", profile);
 
