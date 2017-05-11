@@ -16,7 +16,7 @@ export default class CreateBoookmark extends Component {
       api.postBookmark({title: title, description: description})
       .then( () => {
         this.props._handleBookmarkCreate();
-        this.props._fetchBookmarks();
+        this.props.fetchBoardData();
       })
       .catch(console.error)
     }

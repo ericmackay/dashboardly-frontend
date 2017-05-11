@@ -76,7 +76,8 @@ class Api {
   // }
 
   postBookmark = (bookmark) => {
-
+    return this.getBoard()
+    .then()
   }
 
 
