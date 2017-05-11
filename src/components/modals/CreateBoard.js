@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './CreateBoard.css';
 import api from '../../api';
+// import Home from '../pages/Home';
 
 const ENTER = 13;
 
@@ -14,9 +15,13 @@ export default class CreateBoard extends Component {
     let{title: {value: title}, description: {value: description}} = this.refs;
     if(title){
       api.postBoard({title: title, description: description})
-      //.then(res => this.props.router.push('/'))
+      .then( () => {
+        this.props._handleBoardCreate();
+        this.props._fetchBoards();
+      })
       .catch(console.error)
     }
+
   }
 
   _handleTyping = (e) => {

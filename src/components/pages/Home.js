@@ -20,6 +20,14 @@ export default class Home extends Component {
   componentDidMount() {
     this._fetchBoards();
   }
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log(prevState.boards.length)
+  //   console.log(this.state.boards.length);
+  //   if (prevState.boards.length != this.state.boards.length){
+  //       this._fetchBoards();
+  //   }
+  //
+  // }
 
   _fetchBoards = () => {
     api.getBoardsList()
@@ -46,7 +54,7 @@ export default class Home extends Component {
           />
         )}
         {auth.isLoggedIn() ? <AddButton _handleBoardCreate={this._handleBoardCreate}/> : null}
-        {this.state.isCreateBoardClicked ? <CreateBoard/> : null }
+        {this.state.isCreateBoardClicked ? <CreateBoard _handleBoardCreate={this._handleBoardCreate} _fetchBoards={this._fetchBoards}/> : null }
       </div>
     ); //For logged in users on the
     //home page, make the + button work. It should open a

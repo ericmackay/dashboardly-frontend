@@ -57,7 +57,6 @@ class Api {
   postBoard = (board) => {
     return this.getMe(localStorage.token)
     .then((profile) => {
-      console.log('ehehheheheh', profile)
       return superagent
       .post(`${API_HOST}/boards`)
       .send({

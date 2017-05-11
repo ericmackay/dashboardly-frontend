@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Menu from './modals/Menu';
 import './App.css';
+import auth from '../auth';
 
 class App extends Component {
   constructor(props) {
@@ -10,6 +11,15 @@ class App extends Component {
   }
 
   closeMenu = () => this.setState({ isMenuOpen: false })
+  closeMenuAndLogout = () =>
+  {
+    this.closeMenu()
+    this._handleLogout()
+  }
+  _handleLogout = () => {
+    auth.logout()
+    // .then(res => this.props..push('/'));
+  }
 
   render() {
     let {isMenuOpen} = this.state
@@ -23,7 +33,7 @@ class App extends Component {
           <i className="fa fa-cog fa-2x settings-icon"/>
         </div>
 
-        <Menu show={isMenuOpen} closeMenu={this.closeMenu}/>
+        <Menu show={isMenuOpen} closeMenu={this.closeMenu} closeMenuAndLogout={this.closeMenuAndLogout}/>
 
         {this.props.children}
 

@@ -14,13 +14,12 @@ class Menu extends Component {
   handleClickOutside = () => {
     this.props.closeMenu();
   }
-  _handleLogout = () => {
-    auth.logout()
-    // .then(res => this.props..push('/'));
-  }
+  // _handleLogout = () => {
+  //   auth.logout()
+  //   // .then(res => this.props..push('/'));
+  // }
   componentDidMount = () => {
     let isLoggedIn = auth.isLoggedIn()
-    let profile = {}
     if(isLoggedIn){
       api.getMe(localStorage.token)
       .then((res) => {
@@ -31,7 +30,7 @@ class Menu extends Component {
 
   }
   render() {
-    let { closeMenu, show } = this.props
+    let { closeMenu, show, closeMenuAndLogout} = this.props
     let isLoggedIn = auth.isLoggedIn()
 
     return (
@@ -60,7 +59,7 @@ class Menu extends Component {
           : null}
 
           {isLoggedIn ?
-            <button className="menu__item" onClick={this._handleLogout}>
+            <button className="menu__item" onClick={closeMenuAndLogout}>
               Logout
             </button>
           : null}
