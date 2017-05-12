@@ -81,10 +81,19 @@ class Api {
   // }
 
   postBookmark = (bookmark) => {
-    return this.getBoard()
-    .then()
+    return this.getBoard(bookmark.boardId)
+    .then(() => {
+      return superagent
+      .post(`${API_HOST}/boards/${bookmark.boardId}/bookmarks`)
+      .send({
+        title: bookmark.title,
+        description: bookmark.description,
+        url: bookmark.url
+      })
+      .set('Authorization', `token ${localStorage.token}`)
+      .set('Accept', 'application/json')
+    })
   }
-  
 }
 
 export default new Api();
