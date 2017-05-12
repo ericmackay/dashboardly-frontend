@@ -15,5 +15,5 @@
 .home__boards {
   display: flex;
   justify-content: space-between;
-  flex-basis: 32%;
+
 }

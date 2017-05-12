@@ -1,4 +1,4 @@
-.create__bookmark {
+.edit__board {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -12,7 +12,7 @@
   border: 0;
 }
 
-.create__bookmark-content {
+.edit__board-content {
   background-color: #fefefe;
   border-radius: 3px;
   margin: 15% auto; /* 15% from the top and centered */
@@ -21,7 +21,7 @@
   max-width: 40%; /* Could be more or less, depending on screen size */
 }
 
-.create__bookmark-content input[type=text], input[type=password] {
+.edit__board-content input[type=text], input[type=password] {
   background: transparent;
   width: 100%;
   color: #CCC;
@@ -33,7 +33,7 @@
   font-size: 20px;
 }
 
-.create__bookmark-content button {
+.edit__board-content button {
   font-family: 'Roboto', sans-serif;
   background: transparent;
   float: right;
@@ -42,15 +42,15 @@
   color: green;
 }
 
-.create__bookmark-content h5 {
+.edit__board-content h5 {
   color: #CCC;
 }
 
-.create__bookmark-button {
+.edit__board-button {
   padding: 1em;
 }
 
-.create__bookmark-button button {
+.edit__board-button button {
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
   background: transparent;

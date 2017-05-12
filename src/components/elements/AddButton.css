@@ -5,6 +5,7 @@
 
 .add-button {
   background: green;
+  display: flex;
   color: white;
   width: 60px;
   height: 60px;
@@ -14,8 +15,8 @@
   position: fixed;
   bottom: 30px;
   right: 30px;
-  text-align: center;
-  vertical-align: middle;
+  justify-content: center;
+  align-items: center;
   line-height: 60px;
 }
 

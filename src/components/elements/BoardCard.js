@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router';
+import { Redirect } from 'react-router';
 import './BoardCard.css';
 
 export default class BoardCard extends Component {
@@ -21,7 +22,7 @@ export default class BoardCard extends Component {
             <div className="board-item2">
             </div>
             <div className="board-edit">
-              <button onClick={this._handleSignup}>Edit</button>
+              <button onClick="/EditBoard">Edit</button>
             </div>
           </div>
         </div>
