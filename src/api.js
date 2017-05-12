@@ -70,6 +70,11 @@ class Api {
 
   }
 
+  deleteBoard = (id) => {
+    return superagent
+    .delete(`${API_HOST}/boards/${id}`)
+  }
+
   // getBookmarksList = (page, count) => {
   //   return superagent
   //   .get(`${API_HOST}/boards/${this.boardId}/bookmarks`)

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import api from '../../api';
 import BoardCard from '../elements/BoardCard';
 import AddButton from '../elements/AddButton';
+import AddButton2 from '../elements/AddButton2';
 import auth from '../../auth';
 import './Home.css';
 import CreateBoard from '../modals/CreateBoard';
@@ -12,7 +13,8 @@ export default class Home extends Component {
     super(props);
     this.state = {
       boards: [],
-      isCreateBoardClicked: false
+      isCreateBoardClicked: false,
+      isDeleteButtonClicked: false
     };
   }
 
@@ -55,8 +57,10 @@ export default class Home extends Component {
             />
             </div>
           )}
-          {auth.isLoggedIn() ? <AddButton _handleBoardCreate={this._handleBoardCreate}/> : null}
-          {this.state.isCreateBoardClicked ? <CreateBoard _handleBoardCreate={this._handleButton} _fetchBoards={this._fetchBoards}/> : null }
+
+          {auth.isLoggedIn() ? <AddButton2 _handleBoardCreate={this._handleBoardCreate}/> : null}
+          {this.state.isCreateBoardClicked ? <CreateBoard _handleBoardCreate={this._handleBoardCreate} _fetchBoards={this._fetchBoards}/> : null }
+
 
       </div>
     ); //For logged in users on the
