@@ -41,6 +41,7 @@ export default class Home extends Component {
       this.setState({ isCreateBoardClicked: !this.state.isCreateBoardClicked  })
   }
 
+
   render() {
     let { boards } = this.state
     return (
@@ -59,7 +60,7 @@ export default class Home extends Component {
           )}
 
           {auth.isLoggedIn() ? <AddButton2 _handleBoardCreate={this._handleBoardCreate}/> : null}
-          {this.state.isCreateBoardClicked ? <CreateBoard _handleBoardCreate={this._handleBoardCreate} _fetchBoards={this._fetchBoards}/> : null }
+          {this.state.isCreateBoardClicked ? <CreateBoard _handleBoardCreate={this._handleBoardCreate} _fetchBoards={this._fetchBoards} /> : null }
 
 
       </div>

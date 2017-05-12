@@ -70,9 +70,13 @@ class Api {
 
   }
 
+
   deleteBoard = (id) => {
-    return superagent
+     console.log("AH~~~~!!!!", id);
+     return superagent
     .delete(`${API_HOST}/boards/${id}`)
+    .set('Authorization', `token ${localStorage.token}`)
+
   }
 
   // getBookmarksList = (page, count) => {
