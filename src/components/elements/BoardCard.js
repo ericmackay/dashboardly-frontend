@@ -43,9 +43,6 @@ export default class BoardCard extends Component {
             </div>
             <div className="board-item2">
             </div>
-            <div className="board-edit">
-              <button onClick="/EditBoard">Edit</button>
-            </div>
           </div>
         </div>
       </Link>
