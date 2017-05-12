@@ -10,7 +10,8 @@ class App extends Component {
     this.state = { isMenuOpen: false }
   }
 
-  closeMenu = () => this.setState({ isMenuOpen: false })
+  closeMenu = () => this.setState({ isMenuOpen: false,
+  isBoardOpen: false })
   closeMenuAndLogout = () =>
   {
     this.closeMenu()
@@ -21,6 +22,8 @@ class App extends Component {
     // .then(res => this.props..push('/'));
   }
 
+
+
   render() {
     let {isMenuOpen} = this.state
     return (
@@ -29,7 +32,7 @@ class App extends Component {
           <i className="fa fa-bars fa-2x menu-icon"
             onClick={()=>this.setState({ isMenuOpen: !isMenuOpen })}
           />
-          <Link to="/" className="App-navbar__title">Dashboardly</Link>
+          {this.state.isBoardOpen ? <Link to="/" className="App-navbar__title">Dashboardly</Link> : <Link to="/" className="App-navbar__title">Dashboardly</Link>}
           <i className="fa fa-cog fa-2x settings-icon"/>
         </div>
 
@@ -40,6 +43,10 @@ class App extends Component {
       </div>
     );
   }
+}
+
+export function changeTitle (title) {
+  console.log("hello", title)
 }
 
 export default App;

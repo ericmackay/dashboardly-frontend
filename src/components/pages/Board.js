@@ -6,6 +6,8 @@ import auth from '../../auth';
 import CreateBoookmark from '../modals/CreateBookmark';
 // import auth from '../../auth';
 import './Board.css';
+import App from '../App';
+const changeTitle = require('../App').changeTitle;
 
 export default class Board extends Component {
   constructor(props) {
@@ -21,16 +23,19 @@ export default class Board extends Component {
 
   componentDidMount() {
     this.fetchBoardData()
+
+    //
   }
 
   fetchBoardData = () => {
-      console.log(this.props, "props!!!!")
+      // console.log(this.props, "props!!!!")
       Promise.all([
         api.getBoard(this.props.params.id),
         api.getBookmarks(this.props.params.id)
       ])
       .then((res) => {
-        console.log(res, "Hello~~~!!!!");
+        // console.log(res, "Hello~~~!!!!");
+        App.changeTitle(res[0].body.title);
         this.setState({
           title: res[0].body.title,
           description: res[0].body.description,
