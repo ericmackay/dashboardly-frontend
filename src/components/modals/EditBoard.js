@@ -1,25 +1,27 @@
 import React, {Component} from 'react';
-import './BookmarkCard.css';
+import './EditBoard.css';
 import api from '../../api';
+// import Home from '../pages/Home';
 
 const ENTER = 13;
 
-export default class CreateBookmark extends Component {
+export default class EditBoard extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
 
-  _submitBookmark = () => {
+  _submitBoardUpdate = () => {
     let{title: {value: title}, description: {value: description}} = this.refs;
     if(title){
-      api.postBookmark({title: title, description: description})
+      api.postBoard({title: title, description: description})
       .then( () => {
-        this.props._handleBookmarkCreate();
-        this.props.fetchBoardData();
+        this.props._handleBoardCreate();
+        this.props._fetchBoards();
       })
       .catch(console.error)
     }
+
   }
 
   _handleTyping = (e) => {
@@ -27,21 +29,21 @@ export default class CreateBookmark extends Component {
       this.setState({error: null})
     }
     if(e.keyCode === ENTER){
-      this._submitBookmark()
+      this._submitBoard()
     }
   }
 
   render() {
     return (
-      <div className="bookmark">
-        <div className="bookmark-content">
-          <h1>Create Bookmark</h1>
+      <div className="edit__board">
+        <div className="edit__board-content">
+          <h1>Edit Board</h1>
           <h5>Title</h5>
           <input type="text" ref="title" onKeyUp={this._handleTyping}/><br/>
           <h5>Description</h5>
           <input type="text" ref="description" onKeyUp={this._handleTyping}/><br/>
-        <div className="bookmark-button">
-          <button onClick={this._submitBookmark}>Create Bookmark</button>
+        <div className="edit__board-button">
+          <button onClick=<EditBoard/>Submit Changes</button>
         </div>
         </div>
       </div>

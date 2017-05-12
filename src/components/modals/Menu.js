@@ -14,10 +14,7 @@ class Menu extends Component {
   handleClickOutside = () => {
     this.props.closeMenu();
   }
-  // _handleLogout = () => {
-  //   auth.logout()
-  //   // .then(res => this.props..push('/'));
-  // }
+
   componentDidMount = () => {
     let isLoggedIn = auth.isLoggedIn()
     if(isLoggedIn){
@@ -39,7 +36,8 @@ class Menu extends Component {
         <div className="menu__header">
           {isLoggedIn ?
             <img src={this.state.profile.avatarUrl} alt="profile-pic" className="menu__avatar"/>
-          : null}
+            : null}
+
         </div>
 
         <div className="menu__list">
@@ -61,7 +59,9 @@ class Menu extends Component {
           : null}
 
           {isLoggedIn ?
+
             <Link to="/" className="menu__item" onClick={closeMenuAndLogout}>
+
               Logout
             </Link>
           : null}

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router';
+import { Redirect } from 'react-router';
 import './BoardCard.css';
 import auth from '../../auth';
 
@@ -41,6 +42,9 @@ export default class BoardCard extends Component {
               <p>{ description }</p>
             </div>
             <div className="board-item2">
+            </div>
+            <div className="board-edit">
+              <button onClick="/EditBoard">Edit</button>
             </div>
           </div>
         </div>

@@ -84,8 +84,7 @@ class Api {
     return this.getBoard()
     .then()
   }
-
-
+  
 }
 
 export default new Api();

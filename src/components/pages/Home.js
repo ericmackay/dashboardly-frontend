@@ -57,8 +57,10 @@ export default class Home extends Component {
             />
             </div>
           )}
+
           {auth.isLoggedIn() ? <AddButton2 _handleBoardCreate={this._handleBoardCreate}/> : null}
           {this.state.isCreateBoardClicked ? <CreateBoard _handleBoardCreate={this._handleBoardCreate} _fetchBoards={this._fetchBoards}/> : null }
+
 
       </div>
     ); //For logged in users on the
