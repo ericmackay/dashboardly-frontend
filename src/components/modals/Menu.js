@@ -37,7 +37,9 @@ class Menu extends Component {
       <div className={`menu ${show?"show":""}`}>
 
         <div className="menu__header">
-          <img src={this.state.profile.avatarUrl} alt="profile-pic" className="menu__avatar"/>
+          {isLoggedIn ?
+            <img src={this.state.profile.avatarUrl} alt="profile-pic" className="menu__avatar"/>
+          : null}
         </div>
 
         <div className="menu__list">
@@ -59,9 +61,9 @@ class Menu extends Component {
           : null}
 
           {isLoggedIn ?
-            <button className="menu__item" onClick={closeMenuAndLogout}>
+            <Link to="/" className="menu__item" onClick={closeMenuAndLogout}>
               Logout
-            </button>
+            </Link>
           : null}
         </div>
 
