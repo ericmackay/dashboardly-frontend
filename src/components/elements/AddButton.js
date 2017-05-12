@@ -9,8 +9,4 @@ export default (props) => (
       <i className="fa fa-plus fa-2x"/>
     </div>
 
-  // <Link to="/boardcreate" className="menu__item">
-  //   <i className="fa fa-plus fa-2x"/>
-  // </Link>
-
 )

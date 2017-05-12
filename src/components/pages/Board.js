@@ -6,7 +6,7 @@ import auth from '../../auth';
 import CreateBoookmark from '../modals/CreateBookmark';
 // import auth from '../../auth';
 import './Board.css';
-import App from '../App';
+import util from '../../util';
 const changeTitle = require('../App').changeTitle;
 
 export default class Board extends Component {
@@ -34,8 +34,7 @@ export default class Board extends Component {
         api.getBookmarks(this.props.params.id)
       ])
       .then((res) => {
-        // console.log(res, "Hello~~~!!!!");
-        App.changeTitle(res[0].body.title);
+        util.changeTitle(res[0].body[0].title);
         this.setState({
           title: res[0].body.title,
           description: res[0].body.description,

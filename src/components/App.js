@@ -3,15 +3,18 @@ import { Link } from 'react-router';
 import Menu from './modals/Menu';
 import './App.css';
 import auth from '../auth';
+import util from '../util';
 
 class App extends Component {
   constructor(props) {
     super(props)
-    this.state = { isMenuOpen: false }
+    this.state = {
+      isMenuOpen: false,
+      title: 'Dashboardly'
+    }
   }
 
-  closeMenu = () => this.setState({ isMenuOpen: false,
-  isBoardOpen: false })
+  closeMenu = () => this.setState({ isMenuOpen: false })
   closeMenuAndLogout = () =>
   {
     this.closeMenu()
@@ -21,8 +24,12 @@ class App extends Component {
     auth.logout()
     // .then(res => this.props..push('/'));
   }
-
-
+  componentDidUpdate(){
+    let newTitle = util.getTitle()
+    if (newTitle != this.state.title){
+      this.setState({title: newTitle})
+    }
+  }
 
   render() {
     let {isMenuOpen} = this.state
@@ -32,7 +39,7 @@ class App extends Component {
           <i className="fa fa-bars fa-2x menu-icon"
             onClick={()=>this.setState({ isMenuOpen: !isMenuOpen })}
           />
-          {this.state.isBoardOpen ? <Link to="/" className="App-navbar__title">Dashboardly</Link> : <Link to="/" className="App-navbar__title">Dashboardly</Link>}
+          <Link to="/" className="App-navbar__title">{this.state.title}</Link>
           <i className="fa fa-cog fa-2x settings-icon"/>
         </div>
 
@@ -43,10 +50,6 @@ class App extends Component {
       </div>
     );
   }
-}
-
-export function changeTitle (title) {
-  console.log("hello", title)
 }
 
 export default App;
