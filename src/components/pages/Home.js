@@ -13,7 +13,8 @@ export default class Home extends Component {
     super(props);
     this.state = {
       boards: [],
-      isCreateBoardClicked: false
+      isCreateBoardClicked: false,
+      isDeleteButtonClicked: false
     };
   }
 
